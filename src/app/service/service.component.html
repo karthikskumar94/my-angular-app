@@ -1,0 +1,126 @@
+<h2>Add Service</h2>
+<form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+    <table border="1" cellPadding="10" cellSpacing="0">
+        <tr>
+            <td><label for="serviceCode">serviceCode</label></td>
+            <td>
+                <input id="serviceCode" formControlName="serviceCode" type="text">
+            </td>
+            <td>
+                <div *ngIf="serviceForm.get('serviceCode')?.invalid && serviceForm.get('serviceCode')?.touched">
+                    Service Code is Mandatory.
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td>
+                <input id="name" formControlName="name" type="text">
+            </td>
+            <td>
+                <div *ngIf="serviceForm.get('name')?.invalid && serviceForm.get('name')?.touched">
+                    Name is Mandatory
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="frequency">Frequency</label></td>
+            <td>
+                <input id="frequency" formControlName="frequency" type="text">
+            </td>
+            <td>
+                <div *ngIf="serviceForm.get('frequency')?.invalid && serviceForm.get('frequency')?.touched">
+                    Frequency must be a number
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td>
+                <textarea id="description" formControlName="description"></textarea>
+            </td>
+            <td>
+                [Optional]
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="languageQualification">Language Qualification</label></td>
+            <td>
+                <input id="languageQualification" formControlName="languageQualification" type="checkbox">
+            </td>
+            <td>
+                [optional]
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="svcLine">SVC Line</label></td>
+            <td>
+                <select id="svcLine" formControlName="svcLine">
+                    <option value="" disabled>---Select SVC Line---</option>
+                    <option *ngFor="let option of svcLineOptions" [value]="option">{{option}}</option>
+                </select>
+            </td>
+            <td>
+                <div *ngIf="serviceForm.get('svcLine')?.invalid && serviceForm.get('svcLine')?.touched">
+                    SVC Line is Mandatory
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<h2>Service List</h2>
+<table border="1" cellPadding="10" cellSpacing="0">
+    <tr>
+        <th>Service Code</th>
+        <th>Name</th>
+        <th>Frequency</th>
+        <th>Description</th>
+        <th>Language Qualification</th>
+        <th>SVC Line</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let service of services; let i=index">
+        <td *ngIf="!isEditing(i)">{{service.serviceCode}}</td>
+        <td *ngIf="isEditing(i)"><input [formControl]="getServiceControl('serviceCode')" type="text"></td>
+
+        <td *ngIf="!isEditing(i)">{{service.name}}</td>
+        <td *ngIf="isEditing(i)"><input [formControl]="getServiceControl('name')" type="text"></td>
+
+        <td *ngIf="!isEditing(i)">{{service.frequency}}</td>
+        <td *ngIf="isEditing(i)"><input [formControl]="getServiceControl('frequency')" type="text"></td>
+
+        <td *ngIf="!isEditing(i)">{{service.description}}</td>
+        <td *ngIf="isEditing(i)"><textarea [formControl]="getServiceControl('description')"></textarea></td>
+
+        <td *ngIf="!isEditing(i)">{{service.languageQualification ? 'Yes':'No'}}</td>
+        <td *ngIf="isEditing(i)"><input type="checkbox" [formControl]="getServiceControl('languageQualification')"></td>
+
+        <td *ngIf="!isEditing(i)">{{service.svcLine}}</td>
+        <td *ngIf="isEditing(i)">
+            <select [formControl]="getServiceControl('svcLine')">
+                <option value="" disabled>---Select SVC Line---</option>
+                <option *ngFor="let option of svcLineOptions" [value]="option">{{option}}</option>
+            </select>
+        </td>
+
+        <td>
+            <button *ngIf="!isEditing(i)" (click)="onEdit(i)">Edit</button>
+            <button *ngIf="isEditing(i)" (click)="onSave(i)">Save</button>
+            <button *ngIf="isEditing(i)" (click)="onCancel()">Cancel</button>
+            <button (click)="onDelete(i)">Delete</button>
+        </td>
+    </tr>
+</table>

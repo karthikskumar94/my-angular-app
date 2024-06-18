@@ -1,0 +1,30 @@
+.edit-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group{
+    margin-bottom: 30px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, 
+.form-group select{
+    width: 100%;
+    padding: 8px;
+}
+
+.form-actions{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form-actions button{
+    padding: 10px, 20px;
+    cursor: pointer;
+}

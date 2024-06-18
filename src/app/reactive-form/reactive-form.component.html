@@ -1,0 +1,53 @@
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" *ngIf="showToast" [class.show]="showToast">
+         <div class="toast-header">
+            <strong class="me-auto">
+                Notification
+            </strong>
+            <button type="button" class="btn-close" (click)="hideToast()" aria-label="Close"></button>
+         </div>   
+         <div class="toast-body">
+            Form submitted successfully!
+         </div>
+        </div>
+
+    </div>
+
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name *</mat-label>
+        <input matInput formControlName="name" (blur)="form.get('name')?.markAsTouched()">
+        <mat-error *ngIf="form.get('name')?.touched">{{getErrorMessage('name')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email *</mat-label>
+        <input matInput formControlName="email" (blur)="form.get('email')?.markAsTouched()">
+        <mat-error *ngIf="form.get('email')?.touched">{{getErrorMessage('email')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Phone Number *</mat-label>
+        <input matInput type="number" formControlName="phone" (blur)="form.get('phone')?.markAsTouched()">
+        <mat-error *ngIf="form.get('phone')?.touched">{{getErrorMessage('phone')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Description *</mat-label>
+        <textarea matInput formControlName="description" (blur)="form.get('description')?.markAsTouched()"></textarea>
+        <mat-error *ngIf="form.get('description')?.touched">{{getErrorMessage('description')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Country *</mat-label>
+        <mat-select formControlName="country" (blur)="form.get('country')?.markAsTouched()">
+            <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('country')?.touched">{{getErrorMessage('country')}}</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+</form>

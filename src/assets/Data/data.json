@@ -1,0 +1,26 @@
+[
+        {
+            "serviceCode": "SCV001",
+            "name": "Service e",
+            "frequency": "1",
+            "description": "First service description",
+            "languageQualification": true,
+            "svcLine": "Administrative.Support"
+        },
+        {
+            "serviceCode": "SCV002",
+            "name": "Service wwdwde",
+            "frequency": "1",
+            "description": "First dwdwservice description",
+            "languageQualification": false,
+            "svcLine": "Administrative.Support"
+        },
+        {
+            "serviceCode": "SCV005",
+            "name": "Karthik",
+            "frequency": "1",
+            "description": "First dwdwservice description",
+            "languageQualification": true,
+            "svcLine": "Administrative.Support"
+        }
+]

@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between mb-2">
+    <div>
+        <input class="form-control" type="text" placeholder="Enter ID" [(ngModel)]="searchId" (keyup.enter)="onSearchId()" (input)="onInputChange($event)"/>
+        <div class="input-group-append"> 
+            <button class="btn btn-primary mt-1" (click)="onSearchId()">Search</button>
+            <button class="btn btn-secondary mt-1" (click)="clearSearch()">Clear</button>
+        </div>
+    </div>
+    <button class="btn btn-primary m1-auto" (click)="onAdd()">Add</button>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Title</th>
+            <th>Completed</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of filteredTodos | paginate: { itemsPerPage: 5, currentPage: p}">
+            <td>{{todo.id}}</td>
+            <td>{{todo.userId}}</td>
+            <td>{{todo.title}}</td>
+            <td>{{todo.completed?'Yes':'No'}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="onEdit(todo)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="onDelete(todo.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="p= $event"></pagination-controls>

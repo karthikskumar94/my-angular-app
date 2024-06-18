@@ -1,0 +1,15 @@
+.horizontal-menu{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.horizontal-menu li{
+    margin-right: 20px;
+}
+
+
+horizontal-menu li:last-child{
+    margin-right: 0;
+}

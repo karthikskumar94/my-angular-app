@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "employeeId":"E001",
+        "employeeName": "John Doe",
+        "employeeDesignation":"Software Engineer",
+        "employeeCompany":"Tech Corp"
+    },
+    {
+        "id":2,
+        "employeeId":"E002",
+        "employeeName": "Jane Smith",
+        "employeeDesignation":"Project Manager",
+        "employeeCompany":"Business Solutions"
+    },
+    {
+        "id":3,
+        "employeeId":"E003",
+        "employeeName": "Sam Wilson",
+        "employeeDesignation":"Designer",
+        "employeeCompany":"Creative Inc"
+    }
+]
