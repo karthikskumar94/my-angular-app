@@ -7,6 +7,7 @@ import { AdminComponent } from './admin/admin.component';
 import { TodoComponent } from './todo/todo.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component'
 import { AggridComponent } from './aggrid/aggrid.component';
+import { ReactiveFormAgGridParentFormComponent } from './reactive-form-ag-grid-parent-form/reactive-form-ag-grid-parent-form.component';
 const routes: Routes = [
   //{path:'', redirectTo:'/home', pathMatch:'full'},
   {path: 'home', component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'todo', component: TodoComponent},
   {path: 'reactiveform', component: ReactiveFormComponent},
-  {path: 'aggrid', component: AggridComponent}
+  {path: 'aggrid', component: AggridComponent},
+  {path: 'reactive-ag', component: ReactiveFormAgGridParentFormComponent}
 ];
 
 @NgModule({

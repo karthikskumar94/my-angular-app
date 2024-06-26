@@ -29,6 +29,19 @@ import { AddTodoDialogComponent } from './todo/add-todo-dialog/add-todo-dialog.c
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { AggridComponent } from './aggrid/aggrid.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { ReactiveFormAgGridParentFormComponent } from './reactive-form-ag-grid-parent-form/reactive-form-ag-grid-parent-form.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AgGridTableComponent } from './ag-grid-table/ag-grid-table.component'
+import { AgGridGroupedComponent } from './ag-grid-grouped/ag-grid-grouped.component';
+import { AgGridEditableComponent } from './ag-grid-editable/ag-grid-editable.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormServiceComponent } from './reactive-form-service/reactive-form-service.component';
+import { EditDialogComponent } from './ag-grid-editable/edit-dialog/edit-dialog.component';
+
+
 
 @NgModule({
   declarations: [
@@ -41,23 +54,34 @@ import { AgGridModule } from 'ag-grid-angular';
     EditTodoDialogComponent,
     AddTodoDialogComponent,
     ReactiveFormComponent,
-    AggridComponent
+    AggridComponent,
+    ReactiveFormAgGridParentFormComponent,
+    AgGridTableComponent,
+    AgGridGroupedComponent,
+    AgGridEditableComponent,
+    ReactiveFormServiceComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule,
-    NgxPaginationModule,
-    FormsModule,
     MatInputModule,
-    MatSelectModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatButtonModule,
-    MatSnackBarModule,
     MatFormFieldModule,
-    AgGridModule
+    MatTabsModule,
+    MatDialogModule,
+    AgGridModule,
+    RouterModule,
+    FormsModule,
+    MatSelectModule,
+    NgxPaginationModule,
+    MatSnackBarModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,33 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput formControlName="id" [disabled]="true">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Service ID</mat-label>
+      <input matInput formControlName="serviceId" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Service Name</mat-label>
+      <input matInput formControlName="serviceName" required>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Service Description</mat-label>
+      <textarea matInput formControlName="serviceDescription" required></textarea>
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="serviceEndorsement">Service Endorsement</mat-checkbox>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Service Expiry</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="serviceExpiry" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+  

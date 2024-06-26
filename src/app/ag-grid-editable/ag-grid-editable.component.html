@@ -1,0 +1,16 @@
+<div style="margin-bottom: 10px;">
+    <button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+    <button mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+  </div>
+  <ag-grid-angular
+    style="width: 100%; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="{ resizable: true, sortable: true, filter: true }"
+    rowSelection="multiple"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    (gridReady)="onGridReady($event)">
+  </ag-grid-angular>
+  
