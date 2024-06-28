@@ -57,6 +57,7 @@ export class ServiceComponent implements OnInit {
       } else {
         this.services.push(payload);
       }
+      this.serviceForm.reset();
       this.dataService.updateData(this.services).subscribe(() => {
         this.serviceForm.reset({
           serviceCode:'',

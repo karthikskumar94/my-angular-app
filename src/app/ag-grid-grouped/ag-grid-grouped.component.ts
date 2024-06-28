@@ -25,7 +25,6 @@ export class AgGridGroupedComponent implements OnInit {
     field: 'serviceName',
     cellRenderer: 'agGroupCellRenderer',
     cellRendererParams: {
-      checkbox: true,
       innerRenderer: 'customCellRenderer'
     }
   };
