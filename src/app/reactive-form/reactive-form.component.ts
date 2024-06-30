@@ -31,6 +31,11 @@ export class ReactiveFormComponent implements OnInit {
         this.hideToast();
       }, 10000);
       this.form.reset();
+      Object.keys(this.form.controls).forEach(key => {
+        this.form.get(key)?.markAsPristine();
+        this.form.get(key)?.markAsUntouched();
+        this.form.get(key)?.updateValueAndValidity();
+      });
     }
   }
 
