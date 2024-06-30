@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" class="form-control" formControlName="name" type="text">
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="text-danger">
+          Name is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="occupation">Occupation</label>
+        <input id="occupation" class="form-control" formControlName="occupation" type="text">
+        <div *ngIf="form.get('occupation')?.invalid && form.get('occupation')?.touched" class="text-danger">
+          Occupation is required
+        </div>
+      </div>
+    </form>
+  
+    <h3>Form Data (JSON)</h3>
+    <pre>{{ formDataJson }}</pre>
+  </div>  

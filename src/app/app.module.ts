@@ -40,6 +40,7 @@ import { AgGridEditableComponent } from './ag-grid-editable/ag-grid-editable.com
 import { RouterModule } from '@angular/router';
 import { ReactiveFormServiceComponent } from './reactive-form-service/reactive-form-service.component';
 import { EditDialogComponent } from './ag-grid-editable/edit-dialog/edit-dialog.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 
 
@@ -60,7 +61,8 @@ import { EditDialogComponent } from './ag-grid-editable/edit-dialog/edit-dialog.
     AgGridGroupedComponent,
     AgGridEditableComponent,
     ReactiveFormServiceComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    DynamicFormComponent
   ],
   imports: [
     BrowserModule,
